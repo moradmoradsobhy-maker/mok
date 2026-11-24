@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>مباراة كرة القدم</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="gameBox">
+    <div id="topBar">
+      <div>فريقك: <strong id="scoreBlue">0</strong></div>
+      <div>
+        <div id="timerText">01:30</div>
+        <small id="metaText">NORMAL • 6P</small>
+      </div>
+      <div>الخصم: <strong id="scoreRed">0</strong></div>
+    </div>
+
+    <div id="fieldBox">
+      <canvas id="gameCanvas" width="1000" height="600"></canvas>
+      <div id="goalBanner">GOAL!</div>
+
+      <div id="touchLayer">
+        <div id="stickBox">
+          <div id="stickKnob"></div>
+        </div>
+
+        <div id="padBox">
+          <div class="pad-row">
+            <button type="button" id="btnSprint">انطلاق</button>
+            <button type="button" id="btnSwitch">تبديل</button>
+          </div>
+          <div class="pad-row">
+            <button type="button" id="btnPass">تمرير</button>
+            <button type="button" id="btnShoot">تسديد</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- قائمة التشغيل -->
+    <div id="startScreen" class="screen active">
+      <div class="panel">
+        <h2>قائمة التشغيل</h2>
+
+        <div class="label">الصعوبة</div>
+        <div class="opts" id="diffOpts">
+          <button type="button" data-val="easy">Easy</button>
+          <button type="button" data-val="normal" class="selected">Normal</button>
+          <button type="button" data-val="hard">Hard</button>
+        </div>
+
+        <div class="label">عدد اللاعبين</div>
+        <div class="opts" id="countOpts">
+          <button type="button" data-val="4">4 (2v2)</button>
+          <button type="button" data-val="6" class="selected">6 (3v3)</button>
+          <button type="button" data-val="8">8 (4v4)</button>
+        </div>
+
+        <div class="label">مدة المباراة</div>
+        <div class="opts" id="timeOpts">
+          <button type="button" data-val="60">1:00</button>
+          <button type="button" data-val="90" class="selected">1:30</button>
+          <button type="button" data-val="120">2:00</button>
+        </div>
+
+        <button type="button" id="btnStart" class="main-btn">بدء المباراة</button>
+      </div>
+    </div>
+
+    <!-- شاشة الفوز: جون سينا -->
+    <div id="winScreen" class="screen">
+      <div class="panel win-panel">
+        <h1>WIN</h1>
+        <p class="tagline">"YOU CAN'T SEE ME!"</p>
+        <svg viewBox="0 0 280 210" width="190" height="145">
+          <circle cx="140" cy="110" r="88" fill="rgba(255,215,0,0.22)" />
+          <path d="M65,205 Q75,135 105,128 L175,128 Q205,135 215,205 Z" fill="#1565c0" />
+          <text x="140" y="172" fill="#ffeb3b" font-size="14" font-weight="900" text-anchor="middle">NEVER GIVE UP</text>
+          <rect x="116" y="62" width="48" height="56" rx="18" fill="#e0a96d" />
+          <path d="M112,74 Q140,44 168,74 Z" fill="#1e88e5" />
+          <circle cx="130" cy="88" r="2.8" fill="#111" />
+          <circle cx="150" cy="88" r="2.8" fill="#111" />
+          <path d="M128,103 Q140,112 152,103" stroke="#fff" stroke-width="3.5" fill="none" />
+          <g class="cena-wave">
+            <rect x="160" y="68" width="34" height="36" rx="8" fill="#e0a96d" />
+            <rect x="176" y="102" width="20" height="10" rx="3" fill="#ffeb3b" />
+          </g>
+        </svg>
+        <div id="winSummary">النتيجة: 0 - 0</div>
+        <button type="button" id="btnAgainWin" class="main-btn">العودة للقائمة</button>
+      </div>
+    </div>
+
+    <!-- شاشة الخسارة: الأندرتيكر -->
+    <div id="loseScreen" class="screen">
+      <div class="panel lose-panel">
+        <h1>YOU LOSE</h1>
+        <p class="tagline taker-tag">"REST IN PEACE"</p>
+        <svg viewBox="0 0 280 210" width="190" height="145">
+          <path d="M55,205 Q70,130 105,125 L175,125 Q210,130 225,205 Z" fill="#111" stroke="#333" />
+          <rect x="116" y="62" width="48" height="56" rx="16" fill="#d7ccc8" />
+          <ellipse cx="129" cy="89" rx="5.5" ry="3.6" fill="#fff" />
+          <ellipse cx="151" cy="89" rx="5.5" ry="3.6" fill="#fff" />
+          <line x1="121" y1="82" x2="135" y2="86" stroke="#111" stroke-width="2.5" />
+          <line x1="159" y1="82" x2="145" y2="86" stroke="#111" stroke-width="2.5" />
+          <ellipse cx="140" cy="68" rx="66" ry="10" fill="#0b0b0b" />
+          <path d="M110,68 L116,34 Q140,28 164,34 L170,68 Z" fill="#141414" />
+          <rect x="112" y="60" width="56" height="5" fill="#7b1fa2" />
+        </svg>
+        <div id="loseSummary">النتيجة: 0 - 0</div>
+        <button type="button" id="btnAgainLose" class="main-btn dark-btn">العودة للقائمة</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+            </html>
+            
